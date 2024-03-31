@@ -1,0 +1,31 @@
+name: jk
+on:
+    push:
+        branches:
+            - master
+jobs:
+    build:
+        runs-on:
+            ubuntu-latest
+        steps:
+            - name: 
+                checkout repo, jk
+              uses: 
+                actions/checkout@v2
+            - name: 
+                login Gubble-hub
+              uses: 
+                docker/login-action@v1
+              with:
+                username: 
+                    ${{secrets.USERNAME}}
+                password: 
+                    ${{secrets.PASSWORD}}
+            - name: 
+                it is to many names
+              run:
+                docker build -t artiklamartik/docker:fluff .
+            - name:
+                Oh Balls, Not good!
+              run:
+                docker push artiklamartik/docker:fluff
